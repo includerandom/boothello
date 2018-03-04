@@ -1,12 +1,14 @@
- apiVersion: v1
- kind: Service
- metadata:
-   name: boothello-service
- spec:
+apiVersion: v1
+kind: Service
+metadata:
+  name: boothello-service
+  labels:
+    app: boothello
+spec:
   type: NodePort
   ports:
-     - port: 8080
-       protocol: TCP
-       targetPort: 8080
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
   selector:
-     app=boothello
+    app: boothello
